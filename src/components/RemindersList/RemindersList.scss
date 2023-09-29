@@ -1,0 +1,80 @@
+.List {
+    display: flex;
+    width: 95%;
+    height: 134px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    gap: 20px;
+    padding: 10px;
+    margin-top: 50px;
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+    &-color {
+        border: 12px solid #C8E6C9;
+        border-radius: 100px;
+    }
+
+    &-container h3 {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 19px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #797979;
+        ;
+    }
+
+    &-container p {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 25px;
+        letter-spacing: 0em;
+        text-align: left;
+
+    }
+
+    &-line {
+        border: 1px solid #D1DCF0;
+        ;
+    }
+
+    &-time {
+        width: 90px;
+        height: 83px;
+        top: 342px;
+        left: 665px;
+    }
+
+    &-ticon {
+        height: 34px;
+        top: 342px;
+        left: 693px;
+        padding: 3.19px;
+
+    }
+
+    &-time p {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 35px;
+        font-weight: 600;
+        line-height: 48px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #797979;
+    }
+
+    &-btnEdit {
+        width: 36px;
+        position: absolute;
+        background: linear-gradient(90deg, #3BC6FB 0%, #00FFCC 100%);
+        height: 36px;
+        border-radius: 100px;
+        transform: translate3d(-10px, 100px, 10px);
+        cursor: pointer;
+    }
+
+}

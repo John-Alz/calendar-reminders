@@ -1,0 +1,111 @@
+.Form {
+    width: 95%;
+    background: #FFFFFF;
+    margin: 0 auto;
+    gap: 20px;
+
+    &-labelTitle {
+        font-family: 'Open Sans', sans-serif;  
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 25px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    &-title {
+        // background: violet;
+        width: 100%;
+        height: 48px;
+        border: 1px solid #31272566;
+        border-radius: 6px;
+        margin-bottom: 20px;
+    }
+
+    &-title::placeholder {
+        color: red;
+        margin-left: 20px;
+    }
+
+    &-textarea {
+        // background: rgb(60, 39, 60);
+        width: 100%;
+        height: 76px;
+        border: 1px solid #31272566;
+        border-radius: 6px;
+        margin-bottom: 20px;
+    }
+
+    &-ctnTwo {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    &-date, &-time {
+        height: 48px;
+        border: 1px solid #31272566;
+        border-radius: 6px;
+        margin-bottom: 20px;
+    }
+
+    &-ctnd {
+        width: 100%;
+        gap: 20px;
+    }
+
+
+    &-date {
+        // background-color: aquamarine;
+        width: 80%;
+    }
+
+    &-time {
+        // background-color: rgb(113, 135, 128);
+        width: 80%;
+    }
+
+    &-separation {
+        width: 100%;
+        border: 1px solid #31272566;
+        margin: 30px 0 40px 0;
+    }
+
+    &-ctnBtns {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    &-twobnts {
+        display: flex;
+        gap: 20px;
+    }
+
+    &-btnOne {
+        width: 108px;
+        height: 49px;
+        border-radius: 4px;
+        background: #626262;
+        color: #FFFFFF;
+        cursor: pointer;
+    }
+    &-btnTwo {
+        width: 108px;
+        height: 49px;
+        border-radius: 4px;
+        background: #394ABC;
+        color: #FFFFFF;
+        cursor: pointer;
+    }
+
+    &-btnThree {
+        width: 108px;
+        height: 49px;
+        border-radius: 4px;
+        background: #D42222;
+        color: #FFFFFF;
+        cursor: pointer;
+    }
+
+}
