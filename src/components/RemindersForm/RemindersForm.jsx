@@ -11,19 +11,21 @@ export default function RemindersForm() {
         title: '',
         description:'',
         date: '',
-        time: ''
+        time: '',
+        color: ''
     })
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const params = useParams()
-    const reminders = useSelector(state => state.reminders)
+    const {remindersListState} = useSelector(state => state.reminders)
 
     const handleChange = (e) => {
         setReminder({
             ...reminder,
             [e.target.name]: e.target.value,
         })
+        console.log(reminder);
     }
 
     const handleSubmit = (e) => {
@@ -48,7 +50,7 @@ export default function RemindersForm() {
 
     useEffect(() => {
       if (params.id) {
-        setReminder(reminders.find(remind => remind.id === params.id))
+        setReminder(remindersListState.find(remind => remind.id === params.id))
       }
     },[])
 
@@ -105,12 +107,26 @@ export default function RemindersForm() {
       />
       </div>
       </div>
+
+      <div className='Form-picker'>
+      <input onChange={handleChange} name='color' value="#C8E6C9" className='Form-pickOne' type='checkbox'/>
+      <input onChange={handleChange} name='color' value="#F5DD29" className='Form-pickTwo' type='checkbox'/>
+      <input onChange={handleChange} name='color' value="#FFCC80" className='Form-pickThree' type='checkbox'/>
+      <input onChange={handleChange} name='color' value="#EF9A9A" className='Form-pickFour' type='checkbox'/>
+      <input onChange={handleChange} name='color' value="#CD8DE5" className='Form-pickFive' type='checkbox'/>
+      <input onChange={handleChange} name='color' value="#5BA4CF" className='Form-pickSix' type='checkbox'/>
+      <input onChange={handleChange} name='color' value="#29CCE5" className='Form-pickSeven' type='checkbox'/>
+      <input onChange={handleChange} name='color' value="#6DECA9" className='Form-pickEight' type='checkbox'/>
+      <input onChange={handleChange} name='color' value="#FF8ED4" className='Form-pickNine' type='checkbox'/>
+      <input onChange={handleChange} name='color' value="#BCAAA4" className='Form-pickTen' type='checkbox'/>
+      </div>
+
       <div className='Form-separation'></div>
   
       <div className='Form-ctnBtns'>
       <div className='Form-remoBtn'>
       {
-        urlActual === urlId ? <button onClick={handleRemove} className='Form-btnThree'>Remove</button> : null
+        urlActual === urlId ? <button onClick={() => handleRemove(remindersListState.id)} className='Form-btnThree'>Remove</button> : null
       }
       </div>
       <div className='Form-twobnts'>

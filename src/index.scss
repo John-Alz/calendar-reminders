@@ -10,11 +10,12 @@
   --tipo-principal   : 'Open Sans', sans-serif;
   ::-webkit-scrollbar {
     // background-color: rgb(57, 59, 76);
-    background-color: rgb(12, 14, 26);
+    background-color: transparent;
     width: 7px;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: rgb(57, 59, 76);
+    background: #421F91;
+    border-radius: 16px;
     // background-color: rgb(12, 14, 26);
   }
 }

@@ -65,6 +65,51 @@
         width: 80%;
     }
 
+    &-picker {
+        display: flex;
+        gap: 15px;
+    }
+
+    &-picker input{
+        width: 55px;
+        height: 48px;
+        border: 3px;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    &-pickOne{
+        background-color: #C8E6C9;;
+        
+    }
+    &-pickTwo{
+        background-color: #F5DD29;
+    }
+    &-pickThree{
+        background-color: #FFCC80;
+    }
+    &-pickFour{
+        background-color: #EF9A9A;
+    }
+    &-pickFive{
+        background-color: #CD8DE5;
+    }
+    &-pickSix{
+        background-color: #5BA4CF;
+    }
+    &-pickSeven{
+        background-color: #29CCE5;
+    }
+    &-pickEight{
+        background-color: #6DECA9;
+    }
+    &-pickNine{
+        background-color: #FF8ED4;
+    }
+    &-pickTen{
+        background-color: #BCAAA4;
+    }
+
     &-separation {
         width: 100%;
         border: 1px solid #31272566;
