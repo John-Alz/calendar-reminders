@@ -18,14 +18,15 @@ export default function RemindersForm() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const params = useParams()
-    const {remindersListState} = useSelector(state => state.reminders)
+    const remindersListState = useSelector(state => state.reminders.remindersListState)
+    const remindersListDate = useSelector(state => state.reminders.remindersListDate)
 
     const handleChange = (e) => {
         setReminder({
             ...reminder,
             [e.target.name]: e.target.value,
         })
-        console.log(reminder);
+        // console.log(reminder);
     }
 
     const handleSubmit = (e) => {
@@ -44,6 +45,7 @@ export default function RemindersForm() {
 
     const handleRemove = (id) => {
       dispatch(deleteTask(id))
+      console.log("elemento eleminado", id);
       navigate('/')
     }
 
@@ -55,9 +57,9 @@ export default function RemindersForm() {
     },[])
 
     const urlActual = window.location.href;
-    console.log('La URL actual es:', urlActual);
+    // console.log('La URL actual es:', urlActual);
     const urlId = `http://localhost:5173/edit-reminder/${params.id}`
-    console.log(urlId);
+    // console.log(urlId);
 
   return (
     <>
@@ -126,7 +128,7 @@ export default function RemindersForm() {
       <div className='Form-ctnBtns'>
       <div className='Form-remoBtn'>
       {
-        urlActual === urlId ? <button onClick={() => handleRemove(remindersListState.id)} className='Form-btnThree'>Remove</button> : null
+        urlActual === urlId ? <button onClick={() => handleRemove(reminder.id)} className='Form-btnThree'>Remove</button> : null
       }
       </div>
       <div className='Form-twobnts'>

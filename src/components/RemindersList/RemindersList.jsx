@@ -11,6 +11,7 @@ import { MdOutlineModeEdit } from 'react-icons/md';
 
 export default function RemindersList() {
 
+    const dispatch = useDispatch();
     const {remindersListState} = useSelector(state => state.reminders)
     const {remindersListDate} = useSelector(state => state.reminders)
     console.log("este es", remindersListState);
@@ -23,12 +24,14 @@ export default function RemindersList() {
     let reminds = [];
     console.log(reminds);
 
-    if (remindersListState) {
+    if (remindersListState && remindersListState.length) {
       for (let i = 0; i < remindersListState.length; i++) {
         if (myDate === remindersListState[i].date) {
+          console.log(myDate);
           // console.log("match", remindersListState[i]);
           reminds.push(remindersListState[i])
-          // console.log(reminds);
+          console.log(reminds);
+          console.log(remindersListState);
         } else {
           console.log("Esta vacio");
         }

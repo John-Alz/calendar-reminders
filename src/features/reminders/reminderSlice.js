@@ -2,14 +2,15 @@ import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
-    myDate: "2023-09-28",
+    myDate: "2023-10-01",
     remindersListDate: [],
+    // remindersListState: [],
     remindersListState: [
     {
         id: uuidv4(),
         title: 'Standups and DS&T',
         description:'Codelitt Inc. is inviting to a Zoom meeting in which everyone as people from the company will participate.',
-        date:"2023-09-28",
+        date:"2023-10-01",
         time: "11:15",
         color:"#c8e6c9"
     },
@@ -17,7 +18,7 @@ const initialState = {
         id: uuidv4(),
         title: 'Architecture Overview',
         description:'Meeting for the presentation of the new application architecture.',
-        date:"2023-09-28",
+        date:"2023-10-01",
         time: "12:00",
         color:"#ffcc81"
     },
@@ -25,7 +26,7 @@ const initialState = {
         id: uuidv4(),
         title: 'Architecture Overview',
         description:'Meeting for the presentation of the new application architecture.',
-        date:"2023-09-28",
+        date:"2023-10-01",
         time: "12:00",
         color:"#ff8ed4"
     },
@@ -33,7 +34,7 @@ const initialState = {
         id: uuidv4(),
         title: 'Architecture Overview',
         description:'Meeting for the presentation of the new application architecture.',
-        date:"2023-09-28",
+        date:"2023-10-01",
         time: "12:00",
         color:"#28cce5"
     }
@@ -51,6 +52,7 @@ export const reminderSlice =  createSlice({
         },
         deleteTask: (state, action) => {
             const idToDelete = action.payload;
+            console.log(idToDelete);
             return state.remindersListState.filter(remind => remind.id !== idToDelete);
         },
         updateTask: (state, action, ) => {
@@ -65,11 +67,14 @@ export const reminderSlice =  createSlice({
             }
         },
         setMyDate: (state, action) => {
-            state.myDate = action.payload;
+            return {
+                ...state,
+                myDate: action.payload
+            };
         },
 
         addRemidDate: (state, action, ) => {
-            state.remindersListDate.push(action.payload)
+            state.remindersListDate = [...state.remindersListDate, action.payload]
         },
     }
 })

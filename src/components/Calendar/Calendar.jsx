@@ -51,22 +51,13 @@ export default function Calendar() {
     console.log(currYear);
 
     function convertirFecha(fecha) {
-        const partes = fecha.split('-');
-        const año = partes[0];
-        let mes = partes[1]
-        let dia = partes[2]
-
-        if (mes.length === 1) {
-            mes = "0" + mes;
-        } 
-
-        if (dia.length === 1) {
-            dia = "0" + dia;
-        } 
-        
+        const date = new Date(fecha);
+        const año = date.getFullYear();
+        const mes = (date.getMonth() + 1).toString().padStart(2, '0');
+        const dia = date.getDate().toString().padStart(2, '0');
     
         return `${año}-${mes}-${dia}`;
-      }
+    }
       
     const handleDate = (day) => {
         const dateForSet = `${currYear}-${currMonth + 1}-${day}`
