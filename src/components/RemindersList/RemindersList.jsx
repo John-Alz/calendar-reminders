@@ -30,7 +30,7 @@ export default function RemindersList() {
           console.log(myDate);
           // console.log("match", remindersListState[i]);
           reminds.push(remindersListState[i])
-          console.log(reminds);
+          console.log(reminds); 
           console.log(remindersListState);
         } else {
           console.log("Esta vacio");
