@@ -73,3 +73,16 @@
     
 }
 
+@media only screen and (max-width: 670px) { 
+    /*Tablets [601px -> 1200px]*/
+    .Home {
+        width: 100%;
+        margin-top: 0;
+
+        &-h2 {
+            font-size: 20px;
+        }
+    }
+    
+}
+
