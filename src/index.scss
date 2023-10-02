@@ -1,52 +1,64 @@
 /* Definimos las Custom properties */
-:root{
+:root {
   /* Colores */
-  --primary         : #0B0D17;
-  --secondary         : #D0D6F9;
-  --tertiary         : #FFFFFF;
-  
+  --primary  : #0B0D17;
+  --secondary: #D0D6F9;
+  --tertiary : #FFFFFF;
+
   /* Tipografía */
-  
-  --tipo-principal   : 'Open Sans', sans-serif;
+
+  --tipo-principal: 'Open Sans', sans-serif;
+
   ::-webkit-scrollbar {
     // background-color: rgb(57, 59, 76);
     background-color: transparent;
-    width: 7px;
+    width           : 7px;
   }
+
   ::-webkit-scrollbar-thumb {
-    background: #421F91;
-    border-radius: 16px;
+    background         : #421F91;
+    border-radius      : 16px;
     // background-color: rgb(12, 14, 26);
   }
 }
 
 /* Reseteamos los margin y paddings de todas las etiquetas */
-* , *::before , *::after{
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
+*,
+*::before,
+*::after {
+  margin        : 0;
+  padding       : 0;
+  border        : 0;
+  box-sizing    : border-box;
   vertical-align: baseline;
 }
-*::before , *::after{
+
+*::before,
+*::after {
   display: block;
 }
 
 /* Evitamos problemas con las imagenes */
-img , picture , video , iframe , figure{
-  max-width: 100%;
-  width: 100%;
-  display: block;
-  /* (Opcional) */ object-fit: cover;
+img,
+picture,
+video,
+iframe,
+figure {
+  max-width : 100%;
+  width     : 100%;
+  display   : block;
+  /* (Opcional) */
+  object-fit: cover;
 }
 
 /* Reseteamos los enlaces para funcionar como cajas... */
 a {
-  display: block;
+  display        : block;
   text-decoration: none;
-  color:inherit;
-  font-size:inherit;
+  color          : inherit;
+  font-size      : inherit;
 }
+
 /* ... excepto los que se encuentran en párrafos */
 p a {
   display: inline;
@@ -63,56 +75,85 @@ html {
 }
 
 /* Desactivamos estilos por defecto de las principales etiquetas de texto */
-h1 , h2 , h3 , h4 , h5 , h6 , p ,span , a , strong , blockquote , i , b , u , em {
-  font-size: inherit;
-  font-weight: inherit;
-  font-style: inherit;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+  font-size      : inherit;
+  font-weight    : inherit;
+  font-style     : inherit;
   text-decoration: none;
-  color:inherit;
+  color          : inherit;
 }
+
 /* Evitamos problemas con los pseudoelementos de quotes */
-blockquote:before, blockquote:after, q:before, q:after {
-    content: '';
-    content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
 }
 
 /* (Opcional) Configuramos el texto que seleccionamos */
 ::selection {
   background-color: var(--secondary);
-  color: var(--primary);
+  color           : var(--primary);
 }
 
 /* Nivelamos problemas de tipografías y colocación de formularios */
-form , input, textarea, select , button , label{
-    font-family: inherit;
-    font-size: inherit;
-    hyphens: auto;
-    background-color: transparent;
-    color:inherit;
-    display: block;
-    /* (Opcional) */ appearance: none;
+form,
+input,
+textarea,
+select,
+button,
+label {
+  font-family     : inherit;
+  font-size       : inherit;
+  hyphens         : auto;
+  background-color: transparent;
+  color           : inherit;
+  display         : block;
+  /* (Opcional) */
+  appearance      : none;
 }
 
 /* Reseteamos las tablas */
-table , tr , td {
+table,
+tr,
+td {
   border-collapse: collapse;
-  border-spacing: 0;
+  border-spacing : 0;
 }
 
 /* Evitamos problemas con los SVG */
-svg{
-    width: 100%;
-    display: block;
-    fill: currentColor;
+svg {
+  width  : 100%;
+  display: block;
+  fill   : currentColor;
 }
 
 /* Configuramos la tipografía para toda la web */
 body {
-  max-height  : 100vh;
-  font-size   : 100%;
-  font-family : var(--tipo-principal);
-  color       : var(--negro);
-  /* (Opcional) */ font-smooth: always;
-  /* (Opcional) */ -webkit-font-smoothing: antialiased;
-  /* (Opcional) */ -moz-osx-font-smoothing: grayscale;
+  max-height             : 100vh;
+  font-size              : 100%;
+  font-family            : var(--tipo-principal);
+  color                  : var(--negro);
+  /* (Opcional) */
+  font-smooth            : always;
+  /* (Opcional) */
+  -webkit-font-smoothing : antialiased;
+  /* (Opcional) */
+  -moz-osx-font-smoothing: grayscale;
 }

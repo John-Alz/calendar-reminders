@@ -78,7 +78,6 @@ export const reminderSlice = createSlice({
         myDate: action.payload,
       };
     },
-
   },
 });
 

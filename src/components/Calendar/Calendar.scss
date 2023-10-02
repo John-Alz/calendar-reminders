@@ -1,101 +1,99 @@
 .Calendar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display            : flex;
+    align-items        : center;
+    justify-content    : center;
     // min-height: 100vh;
     // background-color: #9b59b6;
 
     &-container {
-        background: linear-gradient(180deg, #101277 0%, #421F91 100%);
-        width: 450px;
+        background   : linear-gradient(180deg, #101277 0%, #421f91 100%);
+        width        : 450px;
         border-radius: 10px;
     }
 
     &-header {
-        display: flex;
+        display       : flex;
         flex-direction: column;
-        align-items: center;
-        padding: 25px 30px 10px;
+        align-items   : center;
+        padding       : 25px 30px 10px;
     }
 
     &-year {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 80px;
-        font-weight: 800;
-        line-height: 109px;
+        font-family   : "Open Sans", sans-serif;
+        font-size     : 80px;
+        font-weight   : 800;
+        line-height   : 109px;
         letter-spacing: 0em;
-        text-align: left;
-        color: #FFFFFF;
+        text-align    : left;
+        color         : #ffffff;
     }
 
     &-icons {
         display: flex;
         padding: 50px 0 20px 0;
-        gap: 15px;
+        gap    : 15px;
     }
 
-    &-icons span{
+    &-icons span {
         // height: 24px;
         // width: 24px;
-        font-size: 1.2rem;
-        color: #fff;
-        margin: 0 1px;
-        text-align: center;
-        padding: 5px;
+        font-size    : 1.2rem;
+        // background-color: #FFFFFF;
+        margin       : 0 1px;
+        text-align   : center;
+        padding      : 5px;
         border-radius: 50%;
-        cursor: pointer;
+        cursor       : pointer;
     }
 
-    &-icon {
-        color: #fff;
-    }
 
-    &-icons span:hover{
-        background-color: #FFF;
+
+    &-icons span:hover {
+        background-color: #fff;
     }
 
     &-month {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 45px;
-        font-weight: 600;
-        line-height: 61px;
+        font-family   : "Open Sans", sans-serif;
+        font-size     : 45px;
+        font-weight   : 600;
+        line-height   : 61px;
         letter-spacing: 0em;
-        text-align: left;
-        color: #FFFFFF;
+        text-align    : left;
+        color         : #ffffff;
     }
 
-    &-content ul{
-        display: flex;
-        flex-wrap: wrap;
+    &-content ul {
+        display   : flex;
+        flex-wrap : wrap;
         text-align: center;
     }
 
     &-weeks {
         font-weight: 500;
-        color: #FFFFFF;
+        color      : #ffffff;
     }
 
     &-days {
         margin-bottom: 20px;
     }
 
-    &-days li{
-        cursor: pointer;
+    &-days li {
+        cursor    : pointer;
         margin-top: 30px;
-        color: #FFFFFF;
+        color     : #ffffff;
     }
+
     &-days li.selected {
-        background: linear-gradient(90deg, #FF465D 0%, #BC46BA 100%); 
+        background   : linear-gradient(90deg, #ff465d 0%, #bc46ba 100%);
         border-radius: 16px;
-      }
+    }
 
     &-inactive {
         // color: transparent;
         visibility: hidden;
     }
 
-
-    &-content ul li{
+    &-content ul li {
         width: calc(100% / 7);
     }
 }
