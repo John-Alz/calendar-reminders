@@ -1,22 +1,18 @@
 
 import './App.scss'
-import RemindersList from './components/RemindersList/RemindersList';
-import RemindersForm from './components/RemindersForm/RemindersForm'
 import {Routes,Route} from 'react-router-dom';
-import Header from './components/Header/Header';
-import HeaderT from './components/HeaderTwo/HeaderT';
-import EditPage from './components/EditPage/EditPage';
-import Calendar from './components/Calendar/Calendar';
+import Home from './pages/Home';
+import AddPage from './pages/AddPage'
+import EditPage from './pages/EditPage';
 
 function App() {
   return (
     <>
     <Routes>
       {/* <Route path='/' element={<RemindersList/>}/> */}
-      <Route path='/' element={<Header/>}/>
-      <Route path='/create-reminder' element={<HeaderT/>}/>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/create-reminder' element={<AddPage/>}/>
       <Route path='/edit-reminder/:id' element={<EditPage/>}/>
-      <Route path='/calendar' element={<Calendar/>}/>
     </Routes>
       
     </>

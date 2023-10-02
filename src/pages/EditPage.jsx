@@ -1,8 +1,8 @@
 import React from 'react'
-import RemindersForm from '../RemindersForm/RemindersForm'
+import RemindersForm from '../components/RemindersForm/RemindersForm'
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import Calendar from '../Calendar/Calendar';
+import Calendar from '../components/Calendar/Calendar';
 
 export default function EditPage() {
 
@@ -32,18 +32,18 @@ export default function EditPage() {
 
 
   return (
-    <div className='Header'>
-    <div className='Header-container'>
-    <div className='Header-subctn'>
-    <div className='Header-oter'>
-    <h2 className='Header-h2'>Edit reminder - {dateDeff}</h2>
+    <div className='Home'>
+    <div className='Home-container'>
+    <div className='Home-subctn'>
+    <div className='Home-oter'>
+    <h2 className='Home-h2'>Edit reminder - {dateDeff}</h2>
     </div>
     
     <div>
     <RemindersForm/>
     </div>
     </div>
-    <div className='Header-calendar'>
+    <div className='Home-calendar'>
     {/* Calendario */}
     <Calendar/>
     </div>

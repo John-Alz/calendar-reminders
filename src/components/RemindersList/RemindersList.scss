@@ -23,6 +23,13 @@
         border-radius: 100px;
     }
 
+    &-container {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        width: 410px;
+    }
+
     &-container h3 {
         font-family: 'Open Sans', sans-serif;
         font-size: 14px;
@@ -50,10 +57,9 @@
     }
 
     &-time {
-        width: 90px;
-        height: 83px;
-        top: 342px;
-        left: 665px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     &-ticon {
@@ -109,4 +115,20 @@
         color: #767A7B;
     }
 
+}
+
+@media only screen and (max-width: 725px) { 
+    /*Tablets [601px -> 1200px]*/
+    .List {
+        &-container h3 {
+            font-size: 13px;
+            ;
+        }
+    
+        &-container p {
+            font-size: 15px;
+    
+        }
+    }
+    
 }

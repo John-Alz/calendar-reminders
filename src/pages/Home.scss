@@ -1,4 +1,4 @@
-.Header {
+.Home {
     width: 80%;
     // background: #18147b; 
     margin: 0 auto;
@@ -52,3 +52,24 @@
     width: 40%;
     }
 }
+
+@media only screen and (max-width: 1200px) { 
+    /*Tablets [601px -> 1200px]*/
+    .Home {
+        &-container {
+        flex-direction: column;
+        width: 1005;
+    }
+
+    &-subctn {
+        width: 100%;
+    }
+
+    &-calendar {
+        width: 100%;
+    }
+
+    }
+    
+}
+

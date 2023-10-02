@@ -2,8 +2,28 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addTask, deleteTask, updateTask } from '../../features/reminders/reminderSlice'
 import { v4 as uuidv4 } from 'uuid';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
 import './RemindersForm.scss'
+
+
+function validate(reminder){
+  let errors ={}
+  if(!reminder.title ) {
+    errors.title = "Title required."
+  } else if(!reminder.description){
+    errors.description = "Description required."
+  } else if(reminder.description.split(" ").length > 30){
+    errors.description = "Maximum characters included must be 30."
+  } 
+  else if(!reminder.date) {
+    errors.date = 'Date required.'
+  } else if(!reminder.time) {
+    errors.time = "Time required."
+  } else if(!reminder.color){
+    errors.color = "Color required."
+  }
+  return errors;
+}
 
 export default function RemindersForm() {
 
@@ -15,18 +35,22 @@ export default function RemindersForm() {
         color: ''
     })
 
+    const [errors, setErrors] = useState({});
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const params = useParams()
     const remindersListState = useSelector(state => state.reminders.remindersListState)
-    const remindersListDate = useSelector(state => state.reminders.remindersListDate)
 
     const handleChange = (e) => {
         setReminder({
             ...reminder,
             [e.target.name]: e.target.value,
         })
-        // console.log(reminder);
+        setErrors(validate({
+          ...reminder,
+          [e.target.name]: e.target.value
+        }));
     }
 
     const handleSubmit = (e) => {
@@ -45,7 +69,6 @@ export default function RemindersForm() {
 
     const handleRemove = (id) => {
       dispatch(deleteTask(id))
-      console.log("elemento eleminado", id);
       navigate('/')
     }
 
@@ -56,10 +79,9 @@ export default function RemindersForm() {
       }
     },[])
 
-    const urlActual = window.location.href;
-    // console.log('La URL actual es:', urlActual);
-    const urlId = `http://localhost:5173/edit-reminder/${params.id}`
-    // console.log(urlId);
+    const location = useLocation();
+    const urlActual = `${location.pathname}/${params.id}`
+    
 
   return (
     <>
@@ -75,6 +97,12 @@ export default function RemindersForm() {
       placeholder='title' 
       value={reminder.title}
       />
+          {
+            errors.title && (
+              <small className='Form-errors' >{errors.title}</small>
+            )
+          }
+          <br />
       <label className='Form-labelDesc'>Description</label>
       <textarea 
       className='Form-textarea'
@@ -83,6 +111,12 @@ export default function RemindersForm() {
       placeholder='description' 
       value={reminder.description}>
       </textarea>
+      {
+            errors.description && (
+              <small className='Form-errors'>{errors.description}</small>
+            )
+          }
+          <br />
       </div>
       <div className='Form-ctnTwo'>
       <div className='Form-ctnd'>
@@ -95,6 +129,12 @@ export default function RemindersForm() {
       name='date' 
       value={reminder.date}
       />
+          {
+            errors.date && (
+              <small className='Form-errors'>{errors.date}</small>
+            )
+          }
+          <br />
       </div>
       <div className='Form-ctnd'>
       <label className='Form-labelTime'>Time</label>
@@ -107,10 +147,17 @@ export default function RemindersForm() {
       step='60' 
       value={reminder.time}
       />
+      {
+            errors.time && (
+              <small className='Form-errors'>{errors.time}</small>
+            )
+          }
       </div>
       </div>
 
-      <div className='Form-picker'>
+      <div>
+        <label className='Form-labelColor'>Color</label>
+        <div className='Form-picker'>
       <input onChange={handleChange} name='color' value="#C8E6C9" className='Form-pickOne' type='checkbox'/>
       <input onChange={handleChange} name='color' value="#F5DD29" className='Form-pickTwo' type='checkbox'/>
       <input onChange={handleChange} name='color' value="#FFCC80" className='Form-pickThree' type='checkbox'/>
@@ -122,20 +169,26 @@ export default function RemindersForm() {
       <input onChange={handleChange} name='color' value="#FF8ED4" className='Form-pickNine' type='checkbox'/>
       <input onChange={handleChange} name='color' value="#BCAAA4" className='Form-pickTen' type='checkbox'/>
       </div>
+      {
+            errors.color && (
+              <small className='Form-errors'>{errors.color}</small>
+            )
+          }
+      </div>
 
       <div className='Form-separation'></div>
   
       <div className='Form-ctnBtns'>
       <div className='Form-remoBtn'>
       {
-        urlActual === urlId ? <button onClick={() => handleRemove(reminder.id)} className='Form-btnThree'>Remove</button> : null
+        urlActual!== '/create-reminder/undefined' ? <button onClick={() => handleRemove(reminder.id)} className='Form-btnThree'>Remove</button> : ""
       }
       </div>
       <div className='Form-twobnts'>
       <Link to='/'>
       <button className='Form-btnOne'>Cancel</button>
       </Link>
-      <button onClick={handleSubmit} className='Form-btnTwo'>Save</button>
+      <button disabled={errors.title || errors.description || errors.date || errors.time || errors.color ? true : false} onClick={handleSubmit} className='Form-btnTwo'>Save</button>
       </div>
       </div>
       

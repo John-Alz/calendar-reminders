@@ -4,13 +4,15 @@
     margin: 0 auto;
     gap: 20px;
 
-    &-labelTitle {
+    &-labelTitle, &-labelDesc, &-labelDate, &-labelTime, &-labelColor {
         font-family: 'Open Sans', sans-serif;  
         font-size: 18px;
         font-weight: 400;
         line-height: 25px;
         letter-spacing: 0em;
         text-align: left;
+        color: #384042;
+        margin-bottom: 5px;
     }
 
     &-title {
@@ -19,13 +21,20 @@
         height: 48px;
         border: 1px solid #31272566;
         border-radius: 6px;
-        margin-bottom: 20px;
+        // margin-bottom: 20px;
     }
 
-    &-title::placeholder {
-        color: red;
-        margin-left: 20px;
+    &-title::placeholder, &-textarea::placeholder {
+        font-family: 'Open Sans', sans-serif;  
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 25px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #38404280;
+        padding-left: 20px;
     }
+
 
     &-textarea {
         // background: rgb(60, 39, 60);
@@ -33,7 +42,6 @@
         height: 76px;
         border: 1px solid #31272566;
         border-radius: 6px;
-        margin-bottom: 20px;
     }
 
     &-ctnTwo {
@@ -46,7 +54,6 @@
         height: 48px;
         border: 1px solid #31272566;
         border-radius: 6px;
-        margin-bottom: 20px;
     }
 
     &-ctnd {
@@ -108,6 +115,19 @@
     }
     &-pickTen{
         background-color: #BCAAA4;
+    }
+
+    &-picker input[type="checkbox"]:checked {
+        border: 2px solid #000; /* Cambia el color y ancho del borde según tu preferencia */
+    }
+
+    &-picker input[type="checkbox"]:not(:checked) {
+        border: none;
+    }
+
+    &-errors {
+        color: red;
+        font-weight: 600;
     }
 
     &-separation {

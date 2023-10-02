@@ -9,6 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
 export default function Calendar() {
 
     const [currMonth, setCurrMonth] = useState(new Date().getMonth());
+    const [selectedDate, setSelectedDate] = useState(null);
 
     let date = new Date();
     let currYear = date.getFullYear();
@@ -45,7 +46,6 @@ export default function Calendar() {
 
     //
 
-    const {myDate} = useSelector(state => state.reminders)
     const dispatch = useDispatch();
 
     console.log(currYear);
@@ -64,6 +64,7 @@ export default function Calendar() {
         const convertDate = convertirFecha(dateForSet)
         console.log(convertDate);
         dispatch(setMyDate(convertDate))
+        setSelectedDate(day)
       }
 
     //
@@ -86,7 +87,7 @@ export default function Calendar() {
         <p className='Calendar-month'>{monthsOfYear[currMonth]}</p>
         <div className='Calendar-icons'>
         <span onClick={handlePrev} className='Calendar-iconPrev'><GrPrevious className='Calendar-icon'/></span>
-        <span onClick={handleNext} className='Calendar-iconNext'><GrNext/></span>
+        <span onClick={handleNext} className='Calendar-iconNext'><GrNext style={{color: "#FFFFFF"}}/></span>
         </div>
     </header>
     <div className='Calendar-content'>
@@ -103,7 +104,7 @@ export default function Calendar() {
     {
         days.map(day => {
             return (
-                <li onClick={() => handleDate(day)} key={uuidv4()}>{day}</li>
+                <li  className={selectedDate === day ? 'selected' : ''} onClick={() => handleDate(day)} key={uuidv4()}>{day}</li>
             )
         })
     }

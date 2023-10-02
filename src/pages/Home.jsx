@@ -1,11 +1,11 @@
 import React from 'react'
-import './Header.scss'
+import './Home.scss'
 import { Link } from 'react-router-dom'
-import RemindersList from '../RemindersList/RemindersList'
-import Calendar from '../Calendar/Calendar'
+import RemindersList from '../components/RemindersList/RemindersList'
+import Calendar from '../components/Calendar/Calendar'
 import { useSelector } from 'react-redux'
 
-export default function Header() {
+export default function Home() {
 
   const {myDate} = useSelector(state => state.reminders)
   console.log(myDate);
@@ -27,13 +27,13 @@ export default function Header() {
 
 
   return (
-    <div className='Header'>
-    <div className='Header-container'>
-    <div className='Header-subctn'>
-    <div className='Header-oter'>
-    <h2 className='Header-h2'>{dateDeff}</h2>
+    <div className='Home'>
+    <div className='Home-container'>
+    <div className='Home-subctn'>
+    <div className='Home-oter'>
+    <h2 className='Home-h2'>{dateDeff}</h2>
         <Link to='/create-reminder'>
-            <button className='Header-btn'>Add reminder</button>
+            <button className='Home-btn'>Add reminder</button>
         </Link>
     </div>
     
@@ -41,7 +41,7 @@ export default function Header() {
     <RemindersList/>
     </div>
     </div>
-    <div className='Header-calendar'>
+    <div className='Home-calendar'>
     {/* Calendario */}
     <Calendar/>
     </div>
