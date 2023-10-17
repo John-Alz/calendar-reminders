@@ -36,6 +36,8 @@ export default function RemindersForm() {
     color: "",
   });
 
+  const [isChecked, setsChecked] = useState(false)
+
   const [errors, setErrors] = useState({});
 
   const dispatch = useDispatch();
@@ -50,6 +52,7 @@ export default function RemindersForm() {
       ...reminder,
       [e.target.name]: e.target.value,
     });
+    set
     setErrors(
       validate({
         ...reminder,

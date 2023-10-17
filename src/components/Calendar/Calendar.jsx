@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export default function Calendar() {
   const [currMonth, setCurrMonth] = useState(new Date().getMonth());
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(new Date().getDate());
 
   let date = new Date();
   let currYear = date.getFullYear();
@@ -41,6 +41,7 @@ export default function Calendar() {
     days.push(i);
   }
 
+
   //
 
   const dispatch = useDispatch();
@@ -49,9 +50,10 @@ export default function Calendar() {
     const date = new Date(fecha);
     const año = date.getFullYear();
     const mes = (date.getMonth() + 1).toString().padStart(2, "0");
-    const dia = date.getDate().toString().padStart(2, "0");
+    const dia = date.getDate() + 1;
+    const diaCorrect = dia.toString().padStart(2, "0");
 
-    return `${año}-${mes}-${dia}`;
+    return `${año}-${mes}-${diaCorrect}`;
   }
 
   const handleDate = (day) => {
